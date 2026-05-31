@@ -293,7 +293,7 @@
       <div>
         <p class="brand-tag">Mawaki · outils</p>
         <h1 class="brand-app">Mawaki_Compression</h1>
-        <p class="sub">Compressez images, vidéos et PDF en local — aucun envoi sur un serveur.</p>
+        <p class="sub">Compressez images, vidéos et PDF — tout reste sur votre appareil.</p>
         <div class="hero-badges">
           <span class="hero-badge">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
@@ -422,7 +422,7 @@
             <option value="mp4" selected>MP4 (H.264) — compatible partout</option>
             <option value="webm">WebM (VP9) — léger pour le web</option>
           </select>
-          <p class="hint" id="videoHint">Fichier local (double-clic) : compression via le navigateur, sans FFmpeg. Via localhost/HTTPS : FFmpeg (~25 Mo) pour une meilleure qualité et l’audio.</p>
+          <p class="hint" id="videoHint">La vidéo est compressée directement dans le navigateur, sans installation.</p>
         </div>
         <div id="pdfBlock" class="controls-block full">
           <label for="pdfMode">Compression PDF</label>
@@ -770,7 +770,7 @@
       function compressVideoBrowser(file, quality, maxEdge, onSubProgress) {
         return new Promise(function (resolve, reject) {
           if (typeof MediaRecorder === "undefined") {
-            reject(new Error("Enregistrement vidéo non supporté. Ouvrez la page via http://localhost (pas en fichier local)."));
+            reject(new Error("Enregistrement vidéo non supporté par ce navigateur."));
             return;
           }
           var outMode = videoFormatSelect ? videoFormatSelect.value : "mp4";
@@ -917,7 +917,7 @@
       function compressVideo(file, quality, maxEdge, onSubProgress) {
         var useBrowserFirst = location.protocol === "file:" || location.origin === "null";
         if (useBrowserFirst) {
-          showToast("Mode navigateur (fichier local détecté)");
+          showToast("Compression via le navigateur");
           return compressVideoBrowser(file, quality, maxEdge, onSubProgress);
         }
         return compressVideoFfmpeg(file, quality, maxEdge, onSubProgress).catch(function (err) {
