@@ -207,6 +207,8 @@
     select:focus, input[type="number"]:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(94, 181, 255, 0.22); }
     .quality-val { float: right; font-weight: 700; color: var(--accent); }
     .hint { font-size: 0.8rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.45; }
+    .privacy-note { margin: 0 0 1rem; padding: 0.7rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid rgba(34,211,153,0.28); background: rgba(34,211,153,0.08); font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+    .privacy-note strong { color: var(--success); font-weight: 600; }
     .btn-row { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1.25rem; align-items: center; }
     button.primary { padding: 0.78rem 1.35rem; border: none; border-radius: var(--radius-sm); background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font-family: inherit; font-weight: 600; font-size: 0.95rem; cursor: pointer; box-shadow: 0 8px 28px rgba(94, 181, 255, 0.32); transition: transform 0.2s, filter 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
     button.primary:hover:not(:disabled) { transform: translateY(-1px); filter: brightness(1.05); }
@@ -293,11 +295,15 @@
       <div>
         <p class="brand-tag">Mawaki · outils</p>
         <h1 class="brand-app">Mawaki_Compression</h1>
-        <p class="sub">Compressez images, vidéos et PDF — tout reste sur votre appareil.</p>
+        <p class="sub">Aucune base de données, aucun serveur : vos fichiers sont traités dans le navigateur et ne sont jamais envoyés ailleurs.</p>
         <div class="hero-badges">
           <span class="hero-badge">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
             100 % local
+          </span>
+          <span class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7z"/><path stroke-linecap="round" d="M9 12h6"/></svg>
+            Sans base de données
           </span>
           <span class="hero-badge">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -332,6 +338,7 @@
     </ol>
 
     <div class="card">
+      <p class="privacy-note"><strong>Confidentialité :</strong> aucune base de données, aucun compte, aucun envoi sur Internet. Vos images, vidéos et PDF restent en mémoire sur votre appareil le temps de la compression, puis vous les téléchargez.</p>
       <div class="format-chips" aria-label="Formats pris en charge">
         <span class="chip">PNG</span><span class="chip">JPEG</span><span class="chip">WebP</span>
         <span class="chip">GIF</span><span class="chip">BMP</span><span class="chip">SVG</span>
